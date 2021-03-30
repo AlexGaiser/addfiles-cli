@@ -1,0 +1,25 @@
+{
+  "name": "addfile",
+  "version": "1.0.1",
+  "description": "Add a file and its tests",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "CLI",
+    "Lightweight",
+    "Fast",
+    "Small Bundle",
+    "Fun"
+  ],
+  "repository": {
+    "url": "https://github.com/AlexGaiser/thecommandislongerthanthecode"
+  },
+  "author": "Alex Gaiser",
+  "license": "ISC",
+  "bin": "cli.js"
+}
