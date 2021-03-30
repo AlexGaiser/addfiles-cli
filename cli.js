@@ -25,7 +25,7 @@ const destinationFile = path.join(process.cwd(), filename);
 const destinTestFile = path.join(process.cwd(), "__tests__", testfileName);
 
 if (!fs.existsSync("__tests__")) {
-  fs.mkdirSync(dirname);
+  fs.mkdirSync("__tests__");
 }
 
 fs.writeFileSync(
