@@ -106,6 +106,9 @@ describe('testing ${name}', ()=>{
   `,
     { recursive: true }
   );
+
+  console.log(`file '${filename}' created at '${dir}'`);
+  console.log(`test file '${testfileName}' created at '${tfdir}'`);
 } catch (e) {
   console.log("Error");
   console.log(e.message);
