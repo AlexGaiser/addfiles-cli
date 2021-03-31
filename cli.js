@@ -11,8 +11,8 @@ if (args.length < 1) {
 const defaults = {
   type: "js",
   testfile: true,
-  dir: path.join(process.cwd()),
-  tfdir: path.join(process.cwd(), "__tests__"),
+  dir: path.join("./"),
+  tfdir: path.join("./", "__tests__"),
 };
 
 const isFlag = (str) => {
@@ -47,16 +47,9 @@ const tfdir = getArg("--tfdir", "-tf") || defaults.tfdir;
 const testfileName = `${name}.test.${type}`;
 const filename = `${name}.${type}`;
 
-const destinationFile = path.join(
-  dir[0] === "." ? "." : process.cwd(),
-  dir,
-  filename
-);
-const destinTestFile = path.join(
-  tfdir[0] === "." ? "." : process.cwd(),
-  tfdir,
-  testfileName
-);
+const destinationFile = path.join(dir, filename);
+const destinTestFile = path.join(tfdir, testfileName);
+
 try {
   if (!fs.existsSync(tfdir)) {
     fs.mkdirSync(tfdir, { recursive: true });
@@ -80,7 +73,7 @@ export default ${name}
     destinTestFile,
     `
 import ${name} from "${path
-      .relative(destinTestFile, destinationFile)
+      .relative(tfdir, destinationFile)
       .replace(/\.[^/.]+$/, "")}";
 
 describe('testing ${name}', ()=>{
@@ -90,6 +83,10 @@ describe('testing ${name}', ()=>{
     { recursive: true }
   );
 } catch (e) {
+  console.log("Error");
   console.log(e.message);
-  process.exit(0);
+  console.log("exiting with code 0");
+  process.exit(1);
 }
+
+process.exit(0);
