@@ -39,10 +39,30 @@ const getArg = (name, shortname, noFlagIndex) => {
   return undefined;
 };
 
-const name = getArg("--name", "-t", 0);
+const evalBoolean = (str) => {
+  switch (str) {
+    case "true":
+      return true;
+    case "t":
+      return true;
+    case "false":
+      return false;
+    case "f":
+      return false;
+    default:
+      return undefined;
+  }
+};
+
+const shouldMakeTestFile =
+  evalBoolean(getArg("--testfile", "-tf", 2)) !== undefined
+    ? evalBoolean(getArg("--testfile", "-tf", 2))
+    : defaults.testfile;
+
+const name = getArg("--name", "-d", 0);
 const type = getArg("--type", "-t", 1) || defaults.type;
 const dir = getArg("--dir", "-d") || defaults.dir;
-const tfdir = getArg("--tfdir", "-tf") || defaults.tfdir;
+const tfdir = getArg("--tfdir", "-td") || defaults.tfdir;
 
 const testfileName = `${name}.test.${type}`;
 const filename = `${name}.${type}`;
@@ -51,9 +71,6 @@ const destinationFile = path.join(dir, filename);
 const destinTestFile = path.join(tfdir, testfileName);
 
 try {
-  if (!fs.existsSync(tfdir)) {
-    fs.mkdirSync(tfdir, { recursive: true });
-  }
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
@@ -69,6 +86,13 @@ export default ${name}
 `,
     { recursive: true }
   );
+  if (!shouldMakeTestFile) {
+    process.exit(0);
+  }
+  if (!fs.existsSync(tfdir)) {
+    fs.mkdirSync(tfdir, { recursive: true });
+  }
+
   fs.writeFileSync(
     destinTestFile,
     `
