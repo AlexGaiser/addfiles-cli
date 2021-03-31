@@ -43,8 +43,6 @@ $ simplemkfile testfile ts
 Create  typescript file and corresponding test file using flags:  
 ```bash
 $ simplemkfile --name testfile --type ts
-
-
 ```
 
 Create a javascript file in a designated directory with a test file with a designatd directory:
