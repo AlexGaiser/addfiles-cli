@@ -14,7 +14,7 @@ in the command line run the command `simplemkfile`
 
 `-t` or `--type` flag designates the file extension (js by default)
 
-`-tf` or `--testfile` flag enables or disables creation of the test file and directory (true by default)  
+`-tf` or `--testfile` flag enables or disables creation of the test file and directory (true by default). Can also be designated by passing as the third, unflagged argument.
 
 `-td` or `--tfdir` to designate the directory the test file will be created in. 
 Defaults to `./__tests__`
@@ -31,15 +31,21 @@ The CLI tool will create a file with the name you give it (along with some boile
 
 ## Example:
 
-create a typescript file and corresponding test file
+create a typescript file and corresponding test file:  
 ```bash
 $ simplemkfile testfile ts
 
 ```
 
-create  typescript file and corresponding test file using flags
+create  typescript file and corresponding test file using flags:  
 ```bash
 $ simplemkfile --name testfile --type ts
 
 
+```
+
+create a javascript file in a designated directory with a test file with a designatd directory:
+
+```bash
+$ simplemkfile myfile ts --dir ./src --tfdir ./tests
 ```
