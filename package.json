@@ -1,5 +1,5 @@
 {
-  "name": "addfile",
+  "name": "simplemkfile",
   "version": "1.0.1",
   "description": "Add a file and its tests",
   "main": "cli.js",
@@ -14,10 +14,12 @@
     "Lightweight",
     "Fast",
     "Small Bundle",
-    "Fun"
+    "Fun",
+    "File Maker",
+    "Tool"
   ],
   "repository": {
-    "url": "https://github.com/AlexGaiser/thecommandislongerthanthecode"
+    "url": "https://github.com/AlexGaiser/addfiles-cli"
   },
   "author": "Alex Gaiser",
   "license": "ISC",
