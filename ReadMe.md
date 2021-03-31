@@ -16,6 +16,14 @@ in the command line run the command `simplemkfile`
 
 `-tf` or `--testfile` flag enables or disables creation of the test file and directory (true by default)  
 
+`-td` or `--tfdir` to designate the directory the test file will be created in. 
+Defaults to `./__tests__`
+
+`-d` or `--dir` to designate the directory the test file will be created in. 
+Defaults to current working directory.
+
+
+
 As a shortcut, you can pass `[name] [type] [testfile]` as the first in this order to pass the arguments without flags.  
 
 The CLI tool will create a file with the name you give it (along with some boilerplate code) as well as a test (jest) file that imports your file.
