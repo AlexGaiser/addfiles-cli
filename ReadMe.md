@@ -7,10 +7,12 @@ Will create a `__tests__/` directory if not already present.
 In addition, users have the option to designate specific directories for the created file and test file. If the directories do not exist they will be created.
 Uses also have the option of setting a flag that prevents the creation of test files. Test files will have the format of `filename.test.filetype`.
 
+## installation 
+`npm i -g simplemkfile`
 
 ## How To Use
 
-In the command line run the command `simplemkfile` with the name of the file you wish to create.
+From your terminal run the command `simplemkfile` with the name of the file you wish to create. Defaults to creating a `.js` file.
 
 ### flags
 `-n` or `--name` flag is used to designate the name of the file you want to create  
