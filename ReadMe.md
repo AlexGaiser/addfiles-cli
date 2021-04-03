@@ -14,7 +14,7 @@ Uses also have the option of setting a flag that prevents the creation of test f
 
 From your terminal run the command `simplemkfile` with the name of the file you wish to create. Defaults to creating a `.js` file.
 
-### flags
+### Flags
 `-n` or `--name` flag is used to designate the name of the file you want to create  
 
 `-t` or `--type` flag designates the file extension (js by default)
