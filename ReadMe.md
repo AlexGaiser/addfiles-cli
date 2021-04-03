@@ -2,7 +2,7 @@
 
 ## Description
 Adds a file and corresponding testing file to the current working directory. 
-Will create a __tests__ directory if not already present.
+Will create a `__tests__/` directory if not already present.
 
 In addition, users have the option to designate specific directories for the created file and test file. If the directories do not exist they will be created.
 Uses also have the option of setting a flag that prevents the creation of test files. Test files will have the format of `filename.test.filetype`.
