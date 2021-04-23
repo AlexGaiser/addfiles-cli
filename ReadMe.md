@@ -8,7 +8,18 @@ In addition, users have the option to designate specific directories for the cre
 Uses also have the option of setting a flag that prevents the creation of test files. Test files will have the format of `filename.test.filetype`.
 
 ## Installation 
-`npm i -g simplemkfile`
+Run the following command from your terminal. 
+```bash
+$ npm i -g simplemkfile
+
+```
+
+However it is preferred to run the command using `npx`
+For example the following will work without a global install: 
+```bash
+$ npx simplemkfile test js
+```
+Using `npx` will ensure that you are always using the latest version of the CLI tool. 
 
 ## How To Use
 
