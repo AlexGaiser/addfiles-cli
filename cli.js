@@ -1,21 +1,21 @@
 #!/usr/bin/env node
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 const args = process.argv.slice(2);
 try {
   if (args.length < 1) {
-    throw new Error("A filename must be provided");
+    throw new Error('A filename must be provided');
   }
 
   const defaults = {
-    type: "js",
+    type: 'js',
     testfile: true,
-    dir: path.join("./"),
-    tfdir: path.join("./", "__tests__"),
+    dir: path.join('./'),
+    tfdir: path.join('./', '__tests__'),
   };
 
   const isFlag = (str) => {
-    return str[0] === "-";
+    return str[0] === '-';
   };
 
   const getArg = (name, shortname, noFlagIndex) => {
@@ -31,7 +31,10 @@ try {
       return flagValue;
     }
 
-    if (args[noFlagIndex] !== undefined && !isFlag(args[noFlagIndex])) {
+    if (
+      args[noFlagIndex] !== undefined &&
+      !isFlag(args[noFlagIndex])
+    ) {
       return args[noFlagIndex];
     }
 
@@ -40,13 +43,13 @@ try {
 
   const evalBoolean = (str) => {
     switch (str) {
-      case "true":
+      case 'true':
         return true;
-      case "t":
+      case 't':
         return true;
-      case "false":
+      case 'false':
         return false;
-      case "f":
+      case 'f':
         return false;
       default:
         return undefined;
@@ -54,19 +57,19 @@ try {
   };
 
   const shouldMakeTestFile =
-    evalBoolean(getArg("--testfile", "-tf", 2)) !== undefined
-      ? evalBoolean(getArg("--testfile", "-tf", 2))
+    evalBoolean(getArg('--testfile', '-tf', 2)) !== undefined
+      ? evalBoolean(getArg('--testfile', '-tf', 2))
       : defaults.testfile;
 
-  const name = getArg("--name", "-d", 0);
+  const name = getArg('--name', '-d', 0);
 
   if (name === undefined) {
-    throw new Error("A filename must be provided");
+    throw new Error('A filename must be provided');
   }
 
-  const type = getArg("--type", "-t", 1) || defaults.type;
-  const dir = getArg("--dir", "-d") || defaults.dir;
-  const tfdir = getArg("--tfdir", "-td") || defaults.tfdir;
+  const type = getArg('--type', '-t', 1) || defaults.type;
+  const dir = getArg('--dir', '-d') || defaults.dir;
+  const tfdir = getArg('--tfdir', '-td') || defaults.tfdir;
 
   const testfileName = `${name}.test.${type}`;
   const filename = `${name}.${type}`;
@@ -87,7 +90,7 @@ const ${name} = () => {
 
 export default ${name}
 `,
-    { recursive: true }
+    { recursive: true },
   );
   if (!shouldMakeTestFile) {
     process.exit(0);
@@ -101,20 +104,20 @@ export default ${name}
     `
 import ${name} from "${path
       .relative(tfdir, destinationFile)
-      .replace(/\.[^/.]+$/, "")}";
+      .replace(/\.[^/.]+$/, '')}";
 
 describe('testing ${name}', ()=>{
 
 })
   `,
-    { recursive: true }
+    { recursive: true },
   );
 
   console.log(`file '${filename}' created at '${dir}'`);
   console.log(`test file '${testfileName}' created at '${tfdir}'`);
 } catch (e) {
   console.log(`Error: ${e.message}`);
-  console.log("process exiting with code (1)");
+  console.log('process exiting with code (1)');
   process.exit(1);
 }
 
