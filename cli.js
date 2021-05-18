@@ -61,8 +61,8 @@ try {
       ? evalBoolean(getArg('--testfile', '-tf', 2))
       : defaults.testfile;
 
-  const name = getArg('--name', '-d', 0);
-
+  const name = getArg('--name', '-n', 0);
+  console.log(name);
   if (name === undefined) {
     throw new Error('A filename must be provided');
   }
