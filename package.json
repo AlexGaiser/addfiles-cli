@@ -5,10 +5,11 @@
   "main": "cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ci:lint": "eslint . -c .eslintrc.json"
+    "ci:lint": "eslint . -c .eslintrc.json",
+    "smf": "node ./lib/cli.js"
   },
   "files": [
-    "cli.js"
+    "lib/"
   ],
   "keywords": [
     "CLI",
@@ -24,7 +25,10 @@
   },
   "author": "Alex Gaiser",
   "license": "ISC",
-  "bin": "cli.js",
+  "bin": {
+    "simplemkfile": "lib/cli.js",
+    "smf": "lib/cli.js"
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^7.24.0",
