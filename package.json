@@ -29,9 +29,7 @@
     "simplemkfile": "lib/cli.js",
     "smf": "lib/cli.js"
   },
-  "dependencies": {
-    "yargs": "^17.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^7.24.0",
     "jest": "^26.6.3",
