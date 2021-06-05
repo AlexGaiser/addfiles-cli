@@ -1,6 +1,6 @@
 {
   "name": "simplemkfile",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Add a file and its tests",
   "main": "cli.js",
   "scripts": {
